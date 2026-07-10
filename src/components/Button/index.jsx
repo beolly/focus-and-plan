@@ -1,6 +1,7 @@
 import './Button.css'
 
 function Button({ children, onClick }) {
+    
   return (
     <button
       className="button"

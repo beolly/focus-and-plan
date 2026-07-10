@@ -1,6 +1,11 @@
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
+.screen {
+  min-height: 100vh;
+  max-width: 430px;
+
+  margin: 0 auto;
+  padding: 28px;
+
+  background: white;
+
+  border-radius: 36px;
 }

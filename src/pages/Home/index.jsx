@@ -1,21 +1,34 @@
+import { useNavigate } from 'react-router-dom'
+
 import Button from '../../components/Button'
 import Card from '../../components/Card'
-import lesson from '../../data/mockData'
 import ProgressBar from '../../components/ProgressBar'
+import courses from '../../data/courses'
+import lessons from '../../data/lessons'
+const currentCourse = courses[0]
+const currentLesson = lessons.find(
+  lesson => lesson.status === 'current'
+)
 
 function Home() {
+    const navigate = useNavigate()
   return(
     <>
-    <Card>
-        <h3>Сьогодні</h3>
-       <p>Урок №{lesson.number}</p>
+    <Button onClick={() => navigate('/add-course')}>
+            Додати курс
+        </Button>
+    
+      {courses.map((course) => <Card key={course.id}>
+        
 
-<h3>{lesson.title}</h3>
-      </Card>
-<ProgressBar progress={lesson.progress} />
-<Button
-  onClick={() => alert('Почати урок')}
->
+        <h2>{currentCourse.title}</h2>
+        <h3>Сьогодні</h3>
+       <p>Урок №{currentLesson.number}</p>
+
+        <h3>{currentLesson.title}</h3>
+    </Card>)}
+<ProgressBar progress={currentLesson.progress} />
+<Button onClick={() => navigate('/lesson')}>
   Почати урок
 </Button>
 </>

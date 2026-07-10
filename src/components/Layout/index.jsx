@@ -1,15 +1,17 @@
 import { Outlet } from 'react-router-dom'
 
+import Header from '../Header'
+import BottomNavigation from '../BottomNavigation'
+
 function Layout() {
   return (
     <>
-      <header>Фокус і План</header>
-
+      <Header />
+<BottomNavigation />
       <main>
         <Outlet />
       </main>
-
-      <footer>Навігація</footer>
+      
     </>
   )
 }
