@@ -1,18 +1,23 @@
 import Button from '../../components/Button'
+import Card from '../../components/Card'
+import lesson from '../../data/mockData'
 import ProgressBar from '../../components/ProgressBar'
 
 function Home() {
   return(
     <>
-  <h3>Сьогодні</h3>
+    <Card>
+        <h3>Сьогодні</h3>
+       <p>Урок №{lesson.number}</p>
 
-<h2>Урок №12</h2>
-
-<h3>Present Simple</h3>
-
-
-<ProgressBar />
-<Button>Почати урок</Button>
+<h3>{lesson.title}</h3>
+      </Card>
+<ProgressBar progress={lesson.progress} />
+<Button
+  onClick={() => alert('Почати урок')}
+>
+  Почати урок
+</Button>
 </>
 )
 }

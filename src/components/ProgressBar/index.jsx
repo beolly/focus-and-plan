@@ -1,8 +1,13 @@
-function ProgressBar() {
+function ProgressBar({ progress }) {
   return (
-    <div>
-      Тут буде ProgressBar
-    </div>
+    <>
+      <progress
+        value={progress}
+        max="100"
+      />
+
+      <p>{progress}%</p>
+    </>
   )
 }
 
