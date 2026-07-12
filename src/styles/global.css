@@ -11,7 +11,35 @@ main {
   margin: 0 auto;
   padding: 24px 20px 96px;
 }
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
+#root {
+  min-height: 100vh;
+}
+
+main {
+  max-width: 430px;
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding: 24px;
+}
+.page {
+  background: var(--surface);
+
+  min-height: calc(100vh - 48px);
+
+  border-radius: var(--radius);
+
+  padding: 28px;
+
+  box-shadow: var(--shadow);
+}
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -25,4 +53,40 @@ h2 {
 
 p {
   color: var(--color-text-secondary);
+}
+
+ .button {
+    width: fit-content;
+
+    padding: 12px 22px;
+
+    border-radius: 999px;
+
+    font-size: 15px;
+
+    margin: 0 auto 40px;
+}
+
+.logo {
+    margin-top: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 48px;
+}
+.logo {
+    margin-top: auto;
+
+    margin-inline: auto;
+
+    margin-bottom: 8px;
+}
+main {
+    max-width: 430px;
+
+    margin: 24px auto;
+
+    padding: 0 16px;
 }

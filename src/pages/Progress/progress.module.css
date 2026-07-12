@@ -1,0 +1,22 @@
+.progress {
+  width: 100%;
+  height: 8px;
+
+  margin-top: 24px;
+
+  background: var(--border);
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+
+  background: var(--primary);
+
+  border-radius: inherit;
+
+  transition: width .3s ease;
+}

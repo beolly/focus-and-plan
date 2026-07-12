@@ -1,15 +1,16 @@
-import './Button.css'
+import styles from './Button.module.css';
 
-function Button({ children, onClick }) {
-    
+function Button({ children, onClick, type = 'button', disabled = false }) {
   return (
     <button
-      className="button"
+      className={styles.button}
+      type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
-  )
+  );
 }
 
-export default Button
+export default Button;

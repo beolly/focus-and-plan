@@ -3,19 +3,33 @@
   height: 52px;
   border: none;
   border-radius: var(--radius);
-  background-color: var(--color-primary);
   color: white;
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  background: var(--primary);
+}
+
+
+.button:active {
+  transform: scale(.98);
+}
+
+.button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .button:hover {
   background-color: var(--color-primary-dark);
+   filter: brightness(0.95);
 }
 
-.button:active {
-  transform: scale(0.98);
-}

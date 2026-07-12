@@ -17,3 +17,18 @@
 
   --transition: .2s ease;
 }
+:root {
+  --bg: #ECE9E3;
+  --surface: #F7F6F3;
+
+  --text: #1F2937;
+  --text-secondary: #6B7280;
+
+  --primary: #356859;
+
+  --border: #DDD8CF;
+
+  --radius: 32px;
+
+  --shadow: 0 10px 35px rgba(0,0,0,.05);
+}
