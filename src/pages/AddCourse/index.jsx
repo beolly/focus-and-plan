@@ -1,20 +1,36 @@
-import { useState } from 'react'
-import Button from '../../components/Button'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/global.css';
+import Button from '../../components/Button';
+import PageHeader from '../../components/PageHeader/PageHeader';
+
+import { getCourses, saveCourses } from '../../utils/storage';
 
 function AddCourse() {
-  const [title, setTitle] = useState('')
+  const navigate = useNavigate();
+
+  const [title, setTitle] = useState('');
 
   function handleSave() {
-    console.log(title)
+    const courses = getCourses();
+
+    const newCourse = {
+      id: Date.now(),
+      title,
+    };
+
+    saveCourses([...courses, newCourse]);
+
+    navigate('/courses');
   }
 
   return (
-    <>
-      <h1>Назва </h1>
+    <div className="page">
+      <PageHeader title="Новий курс" />
+
+      <label>Назва</label>
 
       <input
-        type="text"
-        placeholder="Назва курсу"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -22,8 +38,8 @@ function AddCourse() {
       <Button onClick={handleSave}>
         Ок
       </Button>
-    </>
-  )
+    </div>
+  );
 }
 
-export default AddCourse
+export default AddCourse;

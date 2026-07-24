@@ -6,8 +6,7 @@ import BottomNavigation from '../BottomNavigation'
 function Layout() {
   return (
     <>
-      <Header />
-<BottomNavigation />
+      {/* <Header /> */}
       <main>
         <Outlet />
       </main>

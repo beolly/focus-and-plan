@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Courses from './pages/Courses'
 import Course from './pages/Course'
 import Lesson from './pages/Lesson'
+import AddLesson from './pages/AddLesson'
 import Progress from './pages/Progress'
 import Settings from './pages/Setting'
 import AddCourse from './pages/AddCourse'
@@ -22,13 +23,14 @@ const router = createBrowserRouter([
       element: <Courses />,
     },
     {
-      path: 'course',
+      path: 'course/:id',
       element: <Course />,
     },
+
     {
-      path: 'lesson',
-      element: <Lesson />,
-    },
+  path: '/courses/:id/add-lesson',
+  element: <AddLesson />,
+},
     {
       path: 'progress',
       element: <Progress />,
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
     {
   path: 'add-course',
   element: <AddCourse />,
+},
+{
+  path: '/courses/:id/lessons/:lessonId',
+  element: <Lesson />,
 },
   ],
 }

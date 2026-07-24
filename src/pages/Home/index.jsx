@@ -5,10 +5,8 @@ import ProgressBar from '../../components/ProgressBar'
 import courses from '../../data/courses'
 import lessons from '../../data/lessons'
 import { NavLink } from "react-router-dom";
-const currentCourse = courses[0]
-const currentLesson = lessons.find(
-  lesson => lesson.status === 'current'
-)
+import Card from '../../components/Card'
+
 const currentCourse = courses[0];
 const currentLesson = lessons.find(
   lesson => lesson.status === 'current'
@@ -19,13 +17,12 @@ function Home() {
   return(
     <div className="page">
       <nav className="nav">
-    <NavLink to="/">Сьогодні</NavLink>
+    <NavLink to="/">Головна</NavLink>
 
     <NavLink to="/courses">Курси</NavLink>
 
     <NavLink to="/settings">⚙</NavLink>
 </nav>
-
 
       {courses.map((course) => <Card key={course.id}>
 
@@ -39,8 +36,12 @@ function Home() {
   Почати урок
 </Button>
     <section className="nextLesson">
-        <p>Наступний урок</p>
-        <h3>Past Simple</h3>
+        <button
+        className="nextButton"
+        onClick={() => navigate('/lesson')}
+    >
+        Наступний урок →
+    </button>
       </section>
       <Logo />
 </div>

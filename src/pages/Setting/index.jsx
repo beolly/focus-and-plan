@@ -1,5 +1,13 @@
-function Setting() {
-  return <h1>Налаштування</h1>
+import PageHeader from '../../components/PageHeader/PageHeader';
+
+function Settings() {
+  return (
+    <div className="page">
+      <PageHeader title="Налаштування" />
+
+      {/* налаштування будуть тут */}
+    </div>
+  );
 }
 
-export default Setting
+export default Settings;

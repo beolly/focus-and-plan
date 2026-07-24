@@ -1,29 +1,26 @@
 .logo {
   width: 58px;
   height: 58px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 48px auto 0;
 
   border-radius: 50%;
-
   background: var(--primary);
 
   color: var(--surface);
-
   font-family: "Marck Script", cursive;
   font-size: 28px;
   font-weight: 400;
-
   user-select: none;
   cursor: pointer;
-
   transition: transform .2s ease;
 }
+a{
+  text-decoration: none;
 
+}
 .logo:hover {
   transform: scale(1.05);
 }

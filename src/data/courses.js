@@ -2,7 +2,6 @@ const courses = [
   {
     id: 1,
     title: 'English for Support',
-    description: 'Підготовка до роботи Customer Support',
     progress: 25,
     lessons: [
       {

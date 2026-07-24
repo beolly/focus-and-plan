@@ -1,0 +1,29 @@
+.homeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--primary);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  margin-bottom: 20px;
+
+  transition: opacity .2s ease;
+}
+
+.homeButton:hover {
+  opacity: .75;
+}
+
+.title {
+  margin-bottom: 28px;
+}
