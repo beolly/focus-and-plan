@@ -32,6 +32,7 @@ function AddLesson() {
               title,
               content,
               notes: '',
+                completed: false,
             },
           ],
         };

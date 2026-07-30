@@ -1,51 +1,151 @@
-import { useNavigate } from 'react-router-dom'
-import Logo from '../../components/Logo'
-import Button from '../../components/Button'
-import ProgressBar from '../../components/ProgressBar'
-import courses from '../../data/courses'
-import lessons from '../../data/lessons'
-import { NavLink } from "react-router-dom";
-import Card from '../../components/Card'
+import { useNavigate, NavLink } from 'react-router-dom';
 
-const currentCourse = courses[0];
-const currentLesson = lessons.find(
-  lesson => lesson.status === 'current'
-);
+import Logo from '../../components/Logo';
+import Button from '../../components/Button';
+import ProgressBar from '../../components/ProgressBar';
+import Card from '../../components/Card';
+
+import { getCourses } from '../../utils/storage';
 
 function Home() {
-    const navigate = useNavigate()
-  return(
+  const navigate = useNavigate();
+
+  const courses = getCourses();
+
+  const currentCourse =
+    courses.find(course => course.active) || courses[0];
+
+  // Якщо курсів немає
+  if (!currentCourse) {
+    return (
+      <div className="page">
+
+        <nav className="nav">
+          <NavLink to="/">Головна</NavLink>
+          <NavLink to="/courses">Курси</NavLink>
+          <NavLink to="/settings">⚙</NavLink>
+        </nav>
+
+        <h2>У вас ще немає курсів</h2>
+
+        <Button
+          onClick={() => navigate('/add-course')}
+        >
+          Додати курс
+        </Button>
+
+        <Logo />
+
+      </div>
+    );
+  }
+
+  const currentLessons =
+    currentCourse.lessons || [];
+
+  // Перший незавершений урок
+  const currentLesson =
+    currentLessons.find(
+      lesson => !lesson.completed
+    );
+
+  // Скільки уроків завершено
+  const completedLessons =
+    currentLessons.filter(
+      lesson => lesson.completed
+    ).length;
+
+  // Прогрес тільки активного курсу
+  const progress =
+    currentLessons.length
+      ? Math.round(
+          (completedLessons /
+            currentLessons.length) *
+            100
+        )
+      : 0;
+
+  return (
     <div className="page">
+
       <nav className="nav">
-    <NavLink to="/">Головна</NavLink>
+        <NavLink to="/">
+          Головна
+        </NavLink>
 
-    <NavLink to="/courses">Курси</NavLink>
+        <NavLink to="/courses">
+          Курси
+        </NavLink>
 
-    <NavLink to="/settings">⚙</NavLink>
-</nav>
+        <NavLink to="/settings">
+          ⚙
+        </NavLink>
+      </nav>
 
-      {courses.map((course) => <Card key={course.id}>
+      <Card>
 
-        <h2 className='course-name'>{currentCourse.title}</h2>
-        <h3>Сьогодні</h3>
-       <p>Урок №{currentLesson.number}</p>
-        <h3>{currentLesson.title}</h3>
-    </Card>)}
-<ProgressBar progress={currentLesson.progress} />
-<Button onClick={() => navigate('/lesson')}>
-  Почати урок
-</Button>
-    <section className="nextLesson">
-        <button
-        className="nextButton"
-        onClick={() => navigate('/lesson')}
+        <h2 className="course-name">
+          {currentCourse.title}
+        </h2>
+
+        <ProgressBar
+          progress={progress}
+        />
+
+     {currentLesson ? (
+  <>
+    <h3>Сьогодні</h3>
+
+    <p>
+      Урок №
+      {currentLessons.indexOf(currentLesson) + 1}
+    </p>
+
+    <h3>{currentLesson.title}</h3>
+
+    <Button
+      onClick={() =>
+        navigate(
+          `/courses/${currentCourse.id}/lessons/${currentLesson.id}`
+        )
+      }
     >
-        Наступний урок →
-    </button>
-      </section>
+      Почати урок
+    </Button>
+  </>
+) : (
+  <>
+    <h2>🎉 Курс завершено</h2>
+
+    <p>
+      Ви пройшли всі уроки цього курсу.
+    </p>
+  </>
+)}
+
+      </Card>
+
+      {currentLesson && (
+        <section className="nextLesson">
+
+          <Button
+            className="nextButton"
+            onClick={() =>
+              navigate(
+                `/courses/${currentCourse.id}/lessons/${currentLesson.id}`
+              )
+            }
+          >
+            Наступний урок →
+          </Button>
+
+        </section>
+      )}
+
       <Logo />
-</div>
-)
+
+    </div>
+  );
 }
 
 export default Home

@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-
+import Layout from './components/Layout'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
 import Course from './pages/Course'
@@ -23,12 +23,12 @@ const router = createBrowserRouter([
       element: <Courses />,
     },
     {
-      path: 'course/:id',
+      path: 'courses/:id',
       element: <Course />,
     },
 
     {
-  path: '/courses/:id/add-lesson',
+  path: 'courses/:id/add-lesson',
   element: <AddLesson />,
 },
     {
@@ -44,12 +44,11 @@ const router = createBrowserRouter([
   element: <AddCourse />,
 },
 {
-  path: '/courses/:id/lessons/:lessonId',
+  path: 'courses/:id/lessons/:lessonId',
   element: <Lesson />,
 },
   ],
 }
 ])
-import Layout from './components/Layout'
 
 export default router

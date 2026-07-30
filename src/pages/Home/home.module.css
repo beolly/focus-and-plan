@@ -80,5 +80,13 @@
     font-size: 16px;
     font-weight: 600;
 
+  margin-top: 20px;
     cursor: pointer;
+}
+.nextButton {
+  margin-top: 28px;
+}
+
+.nextLesson {
+  margin-top: 24px;
 }

@@ -20,15 +20,31 @@ function Lesson() {
     course => course.id === Number(id)
   );
 
+  if (!course) {
+    return (
+      <div className="page">
+        <h2>Курс не знайдено</h2>
+      </div>
+    );
+  }
+
   const lessons = course.lessons || [];
 
-  const currentLessonIndex = lessons.findIndex(
+  const lessonIndex = lessons.findIndex(
     lesson => lesson.id === Number(lessonId)
   );
 
-  const lesson = lessons[currentLessonIndex];
+  const lesson = lessons[lessonIndex];
 
-  const nextLesson = lessons[currentLessonIndex + 1];
+  if (!lesson) {
+    return (
+      <div className="page">
+        <h2>Урок не знайдено</h2>
+      </div>
+    );
+  }
+
+  const nextLesson = lessons[lessonIndex + 1];
 
   const [notes, setNotes] = useState(
     lesson.notes || ''
@@ -41,7 +57,9 @@ function Lesson() {
           ...course,
 
           lessons: course.lessons.map(lesson => {
-            if (lesson.id === Number(lessonId)) {
+            if (
+              lesson.id === Number(lessonId)
+            ) {
               return {
                 ...lesson,
                 notes,
@@ -59,6 +77,37 @@ function Lesson() {
     saveCourses(updatedCourses);
   }
 
+function handleCompleteLesson() {
+  const updatedCourses = courses.map(course => {
+    if (course.id !== Number(id)) {
+      return course;
+    }
+
+    return {
+      ...course,
+      active: true,
+      lessons: course.lessons.map(item => {
+        if (item.id === Number(lessonId)) {
+          return {
+            ...item,
+            completed: true,
+            notes,
+          };
+        }
+
+        return item;
+      }),
+    };
+  });
+
+  saveCourses(updatedCourses);
+
+  if (nextLesson) {
+    navigate(`/courses/${id}/lessons/${nextLesson.id}`);
+  } else {
+    navigate(`/`);
+  }
+}
   return (
     <div className="page">
 
@@ -67,9 +116,9 @@ function Lesson() {
       <section className="lessonTopic">
         <h2>Тема</h2>
 
-      <p>
-  {lesson.content}
-</p>
+        <p>
+          {lesson.content}
+        </p>
       </section>
 
       <section className="lessonNotes">
@@ -77,15 +126,23 @@ function Lesson() {
 
         <textarea
           value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e) =>
+            setNotes(e.target.value)
+          }
           placeholder="Додайте свої нотатки..."
         />
+<div className="lessonButtons">
 
-        <Button onClick={handleSaveNotes}>
-          Зберегти нотатки
-        </Button>
+  <Button  className="small" onClick={handleSaveNotes}>
+    Зберегти 
+  </Button>
+
+  <Button  className="small" onClick={handleCompleteLesson}>
+    Вивчив
+  </Button>
+
+</div>
       </section>
-
       {nextLesson && (
         <Button
           onClick={() =>
@@ -94,7 +151,7 @@ function Lesson() {
             )
           }
         >
-          Наступний урок
+          Наступний урок →
         </Button>
       )}
 
@@ -102,4 +159,4 @@ function Lesson() {
   );
 }
 
-export default Lesson;
+export default Lesson

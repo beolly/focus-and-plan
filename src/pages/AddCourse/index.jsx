@@ -17,6 +17,8 @@ function AddCourse() {
     const newCourse = {
       id: Date.now(),
       title,
+        active: courses.length === 0,
+  lessons: [],
     };
 
     saveCourses([...courses, newCourse]);

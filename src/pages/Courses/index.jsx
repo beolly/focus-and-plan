@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Button from '../../components/Button';
@@ -8,37 +8,43 @@ function Courses() {
   const navigate = useNavigate();
   const courses = getCourses();
 
+  if (courses.length === 0) {
+    return (
+      <div className="page">
+        <PageHeader title="Мої курси" />
+
+        <div className="emptyState">
+          <h2>Курсів ще немає</h2>
+
+          <p>Створіть перший курс, щоб почати навчання.</p>
+
+          <Button onClick={() => navigate('/add-course')}>
+            Створити курс
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="page">
       <PageHeader title="Мої курси" />
 
-      {courses.length === 0 ? (
-        <div className="emptyState">
-          <h2>У вас ще немає курсів</h2>
-
-          <Button onClick={() => navigate('/add-course')}>
-            Додати курс
-          </Button>
+      {courses.map(course => (
+        <div
+          key={course.id}
+          className="courseItem"
+          onClick={() => navigate(`/courses/${course.id}`)}
+        >
+          <h2>{course.title}</h2>
         </div>
-      ) : (
-        <>
-          {courses.map(course => (
-            <div
-              key={course.id}
-              className="courseItem"
-              onClick={() => navigate(`/courses/${course.id}`)}
-            >
-              <h2>{course.title}</h2>
-            </div>
-          ))}
+      ))}
 
-          <Button onClick={() => navigate('/add-course')}>
-            Додати курс
-          </Button>
-        </>
-      )}
+      <Button onClick={() => navigate('/add-course')}>
+        Додати курс
+      </Button>
     </div>
   );
 }
-// проойдено курс
-export default Courses;
+
+export default Courses

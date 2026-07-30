@@ -17,8 +17,19 @@
 
   background: var(--primary);
 }
-
-
+.button.small{
+    padding:10px 18px;
+    width:auto;
+    min-width:150px;
+}
+.nextButton {
+  margin-top: 20px;
+}
+.lessonButtons{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
 .button:active {
   transform: scale(.98);
 }
