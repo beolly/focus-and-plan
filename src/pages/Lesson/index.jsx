@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import './Lesson.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Button from '../../components/Button';
 
