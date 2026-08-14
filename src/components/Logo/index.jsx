@@ -1,16 +1,15 @@
 import styles from './Logo.module.css';
+import { Link } from 'react-router-dom';
 
 function Logo() {
   return (
-    <a
-      href="https://focus-and-plan.com"
-      target="_blank"
-      rel="noopener noreferrer"
+     <Link
+      to="/about"
       className={styles.logo}
-      aria-label="Сайт Фокус і План"
+      aria-label="Про застосунок Focus & Plan"
     >
       ФП
-    </a>
+    </Link>
   );
 }
 

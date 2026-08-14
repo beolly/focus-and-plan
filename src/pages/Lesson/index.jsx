@@ -134,7 +134,7 @@ function handleCompleteLesson() {
 <div className="lessonButtons">
 
   <Button  className="small" onClick={handleSaveNotes}>
-    Зберегти 
+    Зберегти зміни
   </Button>
 
   <Button  className="small" onClick={handleCompleteLesson}>
@@ -151,7 +151,7 @@ function handleCompleteLesson() {
             )
           }
         >
-          Наступний урок →
+          Наступний  →
         </Button>
       )}
 

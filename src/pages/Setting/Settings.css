@@ -1,0 +1,89 @@
+.settingsPage {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settingsSection {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 auto 32px;
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  background: var(--card-background);
+}
+
+.settingsSection h2 {
+  margin: 0 0 16px;
+
+  font-size: 20px;
+}
+
+.themeOptions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.themeOption {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.themeOption:hover {
+  background: var(--hover-background);
+}
+
+.themeOption input {
+  margin: 0;
+}
+
+.settingsLink {
+  display: block;
+
+  color: var(--text-color);
+
+  text-decoration: none;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: var(--hover-background);
+}
+
+.version p {
+  margin: 0;
+
+  color: var(--secondary-text);
+}
+
+@media (max-width: 600px) {
+
+  .settingsSection {
+    padding: 16px;
+
+    margin-bottom: 20px;
+  }
+
+  .settingsSection h2 {
+    font-size: 18px;
+  }
+
+}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/global.css';
 import Button from '../../components/Button';
 import PageHeader from '../../components/PageHeader/PageHeader';
-
+import './AddCourse.module.css';
 import { getCourses, saveCourses } from '../../utils/storage';
 
 function AddCourse() {
@@ -29,13 +29,15 @@ function AddCourse() {
   return (
     <div className="page">
       <PageHeader title="Новий курс" />
+<label htmlFor="title">
+  Назва курсу
+</label>
 
-      <label>Назва</label>
-
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+<input
+  id="title"
+  value={title}
+  onChange={(e) => setTitle(e.target.value)}
+/>
 
       <Button onClick={handleSave}>
         Ок

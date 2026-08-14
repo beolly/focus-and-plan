@@ -4,7 +4,7 @@ import Logo from '../../components/Logo';
 import Button from '../../components/Button';
 import ProgressBar from '../../components/ProgressBar';
 import Card from '../../components/Card';
-
+import './Home.css';
 import { getCourses } from '../../utils/storage';
 
 function Home() {
@@ -48,6 +48,15 @@ function Home() {
     currentLessons.find(
       lesson => !lesson.completed
     );
+    const currentLessonIndex =
+  currentLesson
+    ? currentLessons.indexOf(currentLesson)
+    : -1;
+
+const nextLesson =
+  currentLessonIndex >= 0
+    ? currentLessons[currentLessonIndex + 1]
+    : null;
 
   // Скільки уроків завершено
   const completedLessons =
@@ -102,8 +111,9 @@ function Home() {
     </p>
 
     <h3>{currentLesson.title}</h3>
-
-    <Button
+{/* homebtnsdiv */}
+   
+   <div className="homeButtons"> <Button
       onClick={() =>
         navigate(
           `/courses/${currentCourse.id}/lessons/${currentLesson.id}`
@@ -111,11 +121,11 @@ function Home() {
       }
     >
       Почати урок
-    </Button>
+    </Button></div>
   </>
 ) : (
   <>
-    <h2>🎉 Курс завершено</h2>
+    <h2> Курс завершено</h2>
 
     <p>
       Ви пройшли всі уроки цього курсу.
@@ -125,23 +135,22 @@ function Home() {
 
       </Card>
 
-      {currentLesson && (
-        <section className="nextLesson">
+    {nextLesson && (
+  <section className="nextLesson">
 
-          <Button
-            className="nextButton"
-            onClick={() =>
-              navigate(
-                `/courses/${currentCourse.id}/lessons/${currentLesson.id}`
-              )
-            }
-          >
-            Наступний урок →
-          </Button>
+    <Button
+      className="nextButton"
+      onClick={() =>
+        navigate(
+          `/courses/${currentCourse.id}/lessons/${nextLesson.id}`
+        )
+      }
+    >
+      Наступний урок →
+    </Button>
 
-        </section>
-      )}
-
+  </section>
+)}
       <Logo />
 
     </div>

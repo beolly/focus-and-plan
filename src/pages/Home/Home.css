@@ -1,0 +1,125 @@
+/* =========================
+   HOME PAGE
+   ========================= */
+
+.page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  width: 100%;
+  margin-bottom: 32px;
+
+  box-sizing: border-box;
+}
+
+.nav a {
+  text-decoration: none;
+
+  color: #376f60;
+  font-size: 16px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  opacity: 0.75;
+}
+
+.nav a.active {
+  font-weight: 700;
+}
+
+
+/* =========================
+   COURSE
+   ========================= */
+
+.course-name {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+
+/* =========================
+   HOME BUTTONS
+   ========================= */
+
+.homeButtons {
+  width: 100%;
+  margin-top: 24px;
+
+  box-sizing: border-box;
+}
+
+.homeButtons button {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   NEXT LESSON
+   ========================= */
+
+.nextLesson {
+  width: 100%;
+
+  margin-top: 16px;
+
+  box-sizing: border-box;
+}
+
+.nextLesson button {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.emptyState {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   COMPLETED COURSE
+   ========================= */
+
+.courseCompleted {
+  text-align: center;
+  margin-top: 24px;
+}
+
+
+/* =========================
+   LOGO
+   ========================= */
+
+.page > .logo {
+  margin-top: 48px;
+}

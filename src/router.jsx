@@ -8,6 +8,7 @@ import AddLesson from './pages/AddLesson'
 import Progress from './pages/Progress'
 import Settings from './pages/Setting'
 import AddCourse from './pages/AddCourse'
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       index: true,
       element: <Home />,
     },
+    {
+  path: 'about',
+  element: <About />,
+},
     {
       path: 'courses',
       element: <Courses />,

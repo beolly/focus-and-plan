@@ -1,23 +1,97 @@
-.lessonNotes textarea {
-  width: 100%;
-  min-height: 220px;
-  margin-top: 12px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #d9d9d9;
-  resize: vertical;
-  font-size: 15px;
-  line-height: 1.5;
-}
 
+.page {
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100dvh;
+
+  box-sizing: border-box;
+}
+.lessonNotes textarea {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 180px;
+
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+
+  resize: vertical;
+}
+@media (max-width: 480px) {
+  .page {
+    padding: 10px 16px;
+  }
+
+  .lessonButtons {
+    gap: 10px;
+  }
+
+  .lessonButtons button {
+    min-width: 0;
+    padding: 5px 14px;
+  }
+
+  .lessonNotes textarea {
+    min-height: 160px;
+  }
+}
 .lessonButtons {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  width: 100%;
   margin-top: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-.lessonButtons .button {
+.lessonButtons > * {
+  margin: 0;
+}
+
+.lessonButtons button {
   width: auto;
-  padding: 10px 18px;
+  min-width: 140px;
+  max-width: 220px;
+
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.lessonNext {
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.lessonNext button {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .lessonButtons {
+    gap: 12px;
+  }
+
+  .lessonButtons button {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
 }
