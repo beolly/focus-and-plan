@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect
+    width="192"
+    height="192"
+    rx="42"
+    fill="#376F60"
+  />
+
+  <circle
+    cx="96"
+    cy="82"
+    r="42"
+    fill="#F7F6F3"
+  />
+
+  <path
+    d="M70 125H122"
+    stroke="#F7F6F3"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M96 40V26"
+    stroke="#F7F6F3"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M96 152V138"
+    stroke="#F7F6F3"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M54 82H40"
+    stroke="#F7F6F3"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M152 82H138"
+    stroke="#F7F6F3"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+</svg>
